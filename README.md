@@ -392,7 +392,7 @@ El uso de variables de entorno es lo único que te falta por aprender de los pri
   Review what we learned, ask for feedback, provide next steps.
 -->
 
-<details id=X>
+<details id=X open>
 <summary><h2>Cierre</h2></summary>
 
 _¡Felicidades! haz completado esta sección del Curso Básico de GitHub Actions de Platzi 💚_
