@@ -1,0 +1,45 @@
+name: Triggers
+run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**/*.py'
+  issues:
+    types:
+      - labeled
+  workflow_dispatch:
+    inputs:
+      lenguaje_favorito:
+        description: 'Lenguaje favorito'
+        default: 'Python'
+        required: true
+        type: string
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: 'Juan'
+        type: string
+  schedule:
+    - cron: '15 22 * * *'
+
+jobs:
+  hola-mundo-manual:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Depurar información de inputs
+        run: |
+          echo "Input nombre: ${{ github.event.inputs.nombre }}"
+          echo "Input lenguaje_favorito: ${{ github.event.inputs.lenguaje_favorito }}"
+
+      - name: Definir nombre y lenguaje
+        run: |
+          echo "USERNAME=${{ github.event.inputs.nombre }}" >> $GITHUB_ENV
+          echo "LANGUAGE=${{ github.event.inputs.lenguaje_favorito }}" >> $
