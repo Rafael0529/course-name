@@ -2,8 +2,7 @@ name: Triggers
 run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
@@ -17,15 +16,10 @@ on:
         description: 'Lenguaje favorito'
         default: Python
         required: true
-        type: choice
-        options:
-        - Python
-        - JavaScript
-        - Go
       nombre:
-        description: 'Tu nombre'
+        description: 'Rafael'
         required: true
-        default: Juan
+        default: Rafael
         type: string
   schedule:
     - cron:  '15 22 * * *'
